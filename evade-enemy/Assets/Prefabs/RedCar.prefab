@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5446317908355763126}
   - component: {fileID: 5472506598414765042}
   - component: {fileID: 5464751652242277160}
+  - component: {fileID: 384106268}
   m_Layer: 0
   m_Name: WheelFR
   m_TagString: Untagged
@@ -164,6 +165,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &384106268
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440395290247759352}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5440506878656760696
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +193,7 @@ GameObject:
   - component: {fileID: 5475359975937028320}
   - component: {fileID: 5464936200218260882}
   m_Layer: 0
-  m_Name: Object003
+  m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,6 +273,7 @@ GameObject:
   - component: {fileID: 5446283074580535754}
   - component: {fileID: 5472155750240137700}
   - component: {fileID: 5464808373212408196}
+  - component: {fileID: 748103974}
   m_Layer: 0
   m_Name: WheelBL
   m_TagString: Untagged
@@ -326,6 +344,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &748103974
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440515701669074214}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5440809140196045818
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +417,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &7800945533408563686
 BoxCollider:
@@ -462,8 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2949238d22211f4cab7bdc8bdae6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MoveSpeed: 0.4
-  m_TurnSpeed: 150
+  m_LeftGuardRail: {fileID: 0}
+  m_RightGuardRail: {fileID: 0}
 --- !u!1 &5440845810581786830
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +509,7 @@ GameObject:
   - component: {fileID: 5443629608165924318}
   - component: {fileID: 5472984145493036424}
   - component: {fileID: 5462941279236991606}
+  - component: {fileID: 399820236}
   m_Layer: 0
   m_Name: WheelBR
   m_TagString: Untagged
@@ -545,6 +580,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &399820236
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440845810581786830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5442497493426289010
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +607,7 @@ GameObject:
   - component: {fileID: 5443483132846270410}
   - component: {fileID: 5475466773293128572}
   - component: {fileID: 5463038242764702594}
+  - component: {fileID: 751018066}
   m_Layer: 0
   m_Name: WheelFL
   m_TagString: Untagged
@@ -626,3 +678,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &751018066
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442497493426289010}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
