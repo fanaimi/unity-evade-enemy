@@ -1128,16 +1128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7769167164686216040, guid: 04b3bc7533bf76b40b9b7951077b51d7, type: 3}
   m_PrefabInstance: {fileID: 1392500709}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1392500711 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7769167165166425195, guid: 04b3bc7533bf76b40b9b7951077b51d7, type: 3}
-  m_PrefabInstance: {fileID: 1392500709}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1392500712 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7769167165032487991, guid: 04b3bc7533bf76b40b9b7951077b51d7, type: 3}
-  m_PrefabInstance: {fileID: 1392500709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476168466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,13 +1937,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7800945533408563688, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_LeftGuardRail
-      value: 
-      objectReference: {fileID: 1392500712}
-    - target: {fileID: 7800945533408563688, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_RightGuardRail
-      value: 
-      objectReference: {fileID: 1392500711}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
