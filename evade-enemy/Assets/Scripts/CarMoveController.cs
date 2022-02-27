@@ -24,16 +24,16 @@ public class CarMoveController : MonoBehaviour
    
    // ------ vars
    // public vars
-   public float m_Acceleration = 500f;
-   public float m_BreakingForce = 300f;
+   [SerializeField] public float m_Acceleration = 400f;
+   [SerializeField] public float m_BreakingForce = 250f;
 
-   public bool m_BrakePressed;
+   [HideInInspector] public bool m_BrakePressed;
    
    // private vars
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
    private float m_JsDeadZone = .2f;
-   private float m_MaxTurnAngle = 8f;
+   private float m_MaxTurnAngle = 5f;
    private float m_CurrentTurnAngle;
 
    private void Awake()
@@ -43,7 +43,7 @@ public class CarMoveController : MonoBehaviour
 
    private void Start()
    {
-      // AudioManager.Instance.Play("Idle");
+      AudioManager.Instance.PlayOnce("Idle");
    }
 
    private void FixedUpdate()
@@ -73,12 +73,23 @@ public class CarMoveController : MonoBehaviour
 
    private void GetVerticalAcceleration()
    {
-      if (m_Joystick.Direction.magnitude > m_JsDeadZone)
+      // if (m_Joystick.Direction.magnitude > m_JsDeadZone)
+      if (true)
       {
-         // AudioManager.Instance.Stop("Idle");
+         if (Mathf.Abs(m_Joystick.Direction.y) > 0)
+         {
+            //AudioManager.Instance.Stop("Idle");
+            //AudioManager.Instance.PlayOnce("Low");
+            // AudioManager.Instance.LerpVolumeToMax("Idle");
+         }
+         else
+         {
+            // AudioManager.Instance.LerpVolumeToMin("Idle");
+            // AudioManager.Instance.Stop("Low");
+            // AudioManager.Instance.PlayOnce("Idle");
+         }
+
          // AudioManager.Instance.PlayOnce("Low");
-         AudioManager.Instance.sounds[0].source.Play();
-         // carSounds.nitro.volume = Mathf.MoveTowards(carSounds.nitro.volume, 0.0f, Time.deltaTime * 2.0f);
          m_CurrentAcceleration = m_Acceleration * m_Joystick.Direction.y;
       }
    } // GetVerticalAcceleration
@@ -105,14 +116,14 @@ public class CarMoveController : MonoBehaviour
       if (m_BrakePressed)
       {
          AudioManager.Instance.PlayOnce("Brake");
-         Debug.Log("down");
+         // Debug.Log("down");
          m_CurrentBrakeForce = m_BreakingForce;
       }
       else
       {
          
          AudioManager.Instance.Stop("Brake");
-         Debug.Log("up");
+         // Debug.Log("up");
          m_CurrentBrakeForce = 0f;
       }
    } // ListenToBrakes

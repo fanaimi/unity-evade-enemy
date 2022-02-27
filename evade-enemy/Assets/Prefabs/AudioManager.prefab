@@ -58,6 +58,12 @@ MonoBehaviour:
     loop: 1
   - clip: {fileID: 8300000, guid: a7763bd04aa8f404291c8bcb1cf328f9, type: 3}
     name: High
+    volume: 0
+    pitch: 1.59
+    source: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: e86212221b27f3440a17189edce1e9fd, type: 3}
+    name: Low
     volume: 0.512
     pitch: 1.59
     source: {fileID: 0}

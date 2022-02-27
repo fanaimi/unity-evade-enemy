@@ -101,4 +101,47 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// use in update / fixedUpdate
+    /// </summary>
+    /// <param name="name"></param>
+    public void LerpVolumeToMax(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s != null)
+        {
+            // Debug.Log("Lerping up " + name);
+            s.source.volume = Mathf.MoveTowards(s.source.volume, 1.0f, Time.deltaTime * 1.5f);
+            // s.source.pitch = Mathf.MoveTowards(s.source.pitch, 3f, Time.deltaTime * 1.5f);
+        }
+        else
+        {
+            Debug.LogWarning($"could not find sound: {name}!");
+        }
+    }
+    
+    
+    /// <summary>
+    /// use in update / fixedUpdate
+    /// </summary>
+    /// <param name="name"></param>
+    public void LerpVolumeToMin(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s != null)
+        {
+            Debug.Log("Lerping down " + name);
+            s.source.volume = Mathf.MoveTowards(s.source.volume, 0.2f, Time.deltaTime * 2.0f);
+            if (s.source.volume == 0)
+            {
+                Stop(s.source.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"could not find sound: {name}!");
+        }
+    }
+
 }
