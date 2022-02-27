@@ -14,13 +14,11 @@ public class BreakBtnController : MonoBehaviour
 
     public void OnPressedrDown()
     {
-        Debug.Log("down");
         m_CarMoveController.m_BrakePressed = true;
     }
  
     public void OnPressedUp()
     {
-        Debug.Log("up");
         m_CarMoveController.m_BrakePressed = false;
     }
     
