@@ -1899,10 +1899,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 963194228, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.541
-      objectReference: {fileID: 0}
     - target: {fileID: 5440809140196045818, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
       propertyPath: m_Name
       value: RedCar
@@ -1950,22 +1946,6 @@ PrefabInstance:
     - target: {fileID: 5446320458499663690, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7800945533408563686, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7344418
-      objectReference: {fileID: 0}
-    - target: {fileID: 7800945533408563686, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_Center.y
-      value: 0.48473945
-      objectReference: {fileID: 0}
-    - target: {fileID: 7800945533408563687, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7800945533408563687, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7800945533408563688, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
       propertyPath: m_LeftGuardRail
