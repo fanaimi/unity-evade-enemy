@@ -13,6 +13,12 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private WheelCollider m_BLwheel;
    [SerializeField] private WheelCollider m_BRwheel;
 
+   // all wheel transforms
+   [SerializeField] private Transform m_FLtransform;
+   [SerializeField] private Transform m_FRtransform;
+   [SerializeField] private Transform m_BLtransform;
+   [SerializeField] private Transform m_BRtransform;
+   
    private Joystick m_Joystick;
    
    
@@ -27,7 +33,7 @@ public class CarMoveController : MonoBehaviour
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
    private float m_JsDeadZone = .2f;
-   private float m_MaxTurnAngle = 5f;
+   private float m_MaxTurnAngle = 8f;
    private float m_CurrentTurnAngle;
 
    private void Awake()
@@ -37,7 +43,7 @@ public class CarMoveController : MonoBehaviour
 
    private void Start()
    {
-      AudioManager.Instance.Play("Idle");
+      // AudioManager.Instance.Play("Idle");
    }
 
    private void FixedUpdate()
@@ -47,7 +53,16 @@ public class CarMoveController : MonoBehaviour
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
       ApplySteering();
+      ApplyColliderStateIntoWheels();
    }
+
+   private void ApplyColliderStateIntoWheels()
+   {
+      UpdateWheelTransforms(m_FLwheel, m_FLtransform);
+      UpdateWheelTransforms(m_FRwheel, m_FRtransform);
+      UpdateWheelTransforms(m_BLwheel, m_BLtransform);
+      UpdateWheelTransforms(m_BRwheel, m_BRtransform);
+   } // ApplyColliderStateIntoWheels
 
    private void ApplySteering()
    {
@@ -62,6 +77,8 @@ public class CarMoveController : MonoBehaviour
       {
          // AudioManager.Instance.Stop("Idle");
          // AudioManager.Instance.PlayOnce("Low");
+         AudioManager.Instance.sounds[0].source.Play();
+         // carSounds.nitro.volume = Mathf.MoveTowards(carSounds.nitro.volume, 0.0f, Time.deltaTime * 2.0f);
          m_CurrentAcceleration = m_Acceleration * m_Joystick.Direction.y;
       }
    } // GetVerticalAcceleration
@@ -99,4 +116,20 @@ public class CarMoveController : MonoBehaviour
          m_CurrentBrakeForce = 0f;
       }
    } // ListenToBrakes
+
+
+   void UpdateWheelTransforms(WheelCollider _collider, Transform _transform)
+   {
+      // getting data from wheel collider into these vars
+      Vector3 position;
+      Quaternion rotation;
+      
+      _collider.GetWorldPose(out position, out rotation);
+      
+      // setting data into wheel transform
+      _transform.position = position;
+      _transform.rotation = rotation;
+
+   }
+
 }
