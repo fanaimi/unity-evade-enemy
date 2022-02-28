@@ -38,8 +38,8 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271298173942781559}
-  m_Center: {x: -0.395, y: 0.3, z: 0.79}
-  m_Radius: 0.15
+  m_Center: {x: -0.38, y: 0.3, z: 0.785}
+  m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -99,8 +99,8 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300438291140851953}
-  m_Center: {x: 0.38, y: 0.3, z: 0.79}
-  m_Radius: 0.15
+  m_Center: {x: 0.38, y: 0.3, z: 0.785}
+  m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -160,8 +160,8 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4396641911841099079}
-  m_Center: {x: -0.395, y: 0.3, z: -0.635}
-  m_Radius: 0.15
+  m_Center: {x: -0.39, y: 0.3, z: -0.63}
+  m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -255,8 +255,8 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5247759020755298642}
-  m_Center: {x: 0.38, y: 0.3, z: -0.635}
-  m_Radius: 0.15
+  m_Center: {x: 0.39, y: 0.3, z: -0.63}
+  m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -339,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6386699693224194900}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.38344812, y: 0.15308, z: 0.78931904}
+  m_LocalPosition: {x: 0.38, y: 0.15308, z: 0.785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1696035296443068118}
@@ -518,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6386859695922996106}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39713335, y: 0.15308002, z: -0.63518906}
+  m_LocalPosition: {x: -0.39, y: 0.15308002, z: -0.635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1696035296443068118}
@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 9178531310927914827}
   - component: {fileID: 9178531310927914826}
   - component: {fileID: 1378725155638327874}
+  - component: {fileID: 565825762}
   m_Layer: 0
   m_Name: RedCar
   m_TagString: Player
@@ -674,9 +675,106 @@ MonoBehaviour:
   m_FRtransform: {fileID: 6392580882178293018}
   m_BLtransform: {fileID: 6392616269011234662}
   m_BRtransform: {fileID: 6388812850706721650}
-  m_Acceleration: 500
-  m_BreakingForce: 300
+  m_Acceleration: 200
+  m_BreakingForce: 150
   m_BrakePressed: 0
+  m_GearSpeeds: 0a000000140000001e000000280000003200000041000000
+--- !u!82 &565825762
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387111627489084758}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f89e913f2255e1f479ac9e3041026578, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.468
+  m_Pitch: 0.26
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6387216192812230242
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6387216192812230242}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39543295, y: 0.15308002, z: -0.63518906}
+  m_LocalPosition: {x: 0.39, y: 0.15308002, z: -0.635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1696035296443068118}
@@ -802,7 +900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6387676140386176990}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38610077, y: 0.15308002, z: 0.78931904}
+  m_LocalPosition: {x: -0.38, y: 0.15308002, z: 0.785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1696035296443068118}

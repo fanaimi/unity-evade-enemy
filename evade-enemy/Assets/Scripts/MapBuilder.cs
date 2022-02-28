@@ -6,7 +6,7 @@ public class MapBuilder : MonoBehaviour
 {
     [SerializeField] private GameObject m_RoadPiecePrefab;
 
-    private float m_NumOfRoadPieces = 150f;
+    private float m_NumOfRoadPieces = 200f;
     private float m_PieceOffset = 10f;
     
     void Start()

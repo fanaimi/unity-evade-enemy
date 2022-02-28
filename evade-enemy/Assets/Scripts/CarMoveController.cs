@@ -27,15 +27,18 @@ public class CarMoveController : MonoBehaviour
    // public vars
    [SerializeField] public float m_Acceleration = 400f;
    [SerializeField] public float m_BreakingForce = 250f;
-
+   
    [HideInInspector] public bool m_BrakePressed;
    
    // private vars
+   [SerializeField] private int[] m_GearSpeeds = new int[6];
    private float m_CurrentSpeed;
-   private float m_MaxSpeed = 50f;
+   private float m_MaxSpeed = 60f;
+   private float m_GearGap = 10f;
+   private float m_MinPitch = .27f;
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
-   private float m_JsDeadZone = .2f;
+   private float m_JsDeadZone = .3f;
    private float m_MaxTurnAngle = 5f;
    private float m_CurrentTurnAngle;
 
@@ -56,7 +59,7 @@ public class CarMoveController : MonoBehaviour
       ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
-      ApplySteering();
+      // ApplySteering();
       ApplyColliderStateIntoWheels();
       ControlEngineSound();
    }
@@ -65,9 +68,20 @@ public class CarMoveController : MonoBehaviour
    {
       var audio = GetComponent<AudioSource>();
       m_CurrentSpeed = m_Rb.velocity.magnitude;
-      // Debug.Log(m_CurrentSpeed);
+      Debug.Log(m_CurrentSpeed);
 
-      audio.pitch = m_CurrentSpeed/m_MaxSpeed + .27f;
+
+      /*
+      if ( Mathf.RoundToInt(m_CurrentSpeed) % 10 == 0)
+      {
+         m_MaxSpeed -= 10;
+         Debug.Log(m_MaxSpeed);
+      }*/
+
+      float soundPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitch;
+      
+      Debug.Log(soundPitch);
+      audio.pitch = soundPitch;
    } // ControlEngineSound
 
    private void ApplyColliderStateIntoWheels()
@@ -80,32 +94,17 @@ public class CarMoveController : MonoBehaviour
 
    private void ApplySteering()
    {
-      m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x;
-      m_FLwheel.steerAngle = m_CurrentTurnAngle;
-      m_FRwheel.steerAngle = m_CurrentTurnAngle;
+      if (Mathf.Abs(m_Joystick.Direction.x) > m_JsDeadZone)
+      {
+         m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x;
+         m_FLwheel.steerAngle = m_CurrentTurnAngle;
+         m_FRwheel.steerAngle = m_CurrentTurnAngle;
+      }
    } // ApplySteering
 
    private void GetVerticalAcceleration()
    {
-      // if (m_Joystick.Direction.magnitude > m_JsDeadZone)
-      if (true)
-      {
-         if (Mathf.Abs(m_Joystick.Direction.y) > 0)
-         {
-            //AudioManager.Instance.Stop("Idle");
-            //AudioManager.Instance.PlayOnce("Low");
-            // AudioManager.Instance.LerpVolumeToMax("Idle");
-         }
-         else
-         {
-            // AudioManager.Instance.LerpVolumeToMin("Idle");
-            // AudioManager.Instance.Stop("Low");
-            // AudioManager.Instance.PlayOnce("Idle");
-         }
-
-         // AudioManager.Instance.PlayOnce("Low");
-         m_CurrentAcceleration = m_Acceleration * m_Joystick.Direction.y;
-      }
+      m_CurrentAcceleration = m_Acceleration * m_Joystick.Direction.y;
    } // GetVerticalAcceleration
 
    private void ApplyWheelsBrake()
@@ -123,6 +122,8 @@ public class CarMoveController : MonoBehaviour
    {
       m_FLwheel.motorTorque = m_CurrentAcceleration;
       m_FRwheel.motorTorque = m_CurrentAcceleration;
+      /*m_BLwheel.motorTorque = m_CurrentAcceleration;
+      m_BRwheel.motorTorque = m_CurrentAcceleration;*/
    } // ApplyWheelsAcceleration
 
    private void ListenToBrakes()
