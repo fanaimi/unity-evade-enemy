@@ -20,6 +20,7 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private Transform m_BRtransform;
    
    private Joystick m_Joystick;
+   private Rigidbody m_Rb;
    
    
    // ------ vars
@@ -30,6 +31,8 @@ public class CarMoveController : MonoBehaviour
    [HideInInspector] public bool m_BrakePressed;
    
    // private vars
+   private float m_CurrentSpeed;
+   private float m_MaxSpeed = 50f;
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
    private float m_JsDeadZone = .2f;
@@ -39,11 +42,12 @@ public class CarMoveController : MonoBehaviour
    private void Awake()
    {
       m_Joystick = FindObjectOfType<Joystick>();
+      m_Rb = GetComponent<Rigidbody>();
    }
 
    private void Start()
    {
-      AudioManager.Instance.PlayOnce("Idle");
+      // AudioManager.Instance.PlayOnce("Idle");
    }
 
    private void FixedUpdate()
@@ -54,7 +58,17 @@ public class CarMoveController : MonoBehaviour
       ApplyWheelsBrake();
       ApplySteering();
       ApplyColliderStateIntoWheels();
+      ControlEngineSound();
    }
+
+   private void ControlEngineSound()
+   {
+      var audio = GetComponent<AudioSource>();
+      m_CurrentSpeed = m_Rb.velocity.magnitude;
+      // Debug.Log(m_CurrentSpeed);
+
+      audio.pitch = m_CurrentSpeed/m_MaxSpeed + .27f;
+   } // ControlEngineSound
 
    private void ApplyColliderStateIntoWheels()
    {
