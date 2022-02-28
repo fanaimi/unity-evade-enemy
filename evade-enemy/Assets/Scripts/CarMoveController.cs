@@ -25,7 +25,7 @@ public class CarMoveController : MonoBehaviour
    
    // ------ vars
    // public vars
-   [SerializeField] public float m_Acceleration = 400f;
+   [SerializeField] public float m_Acceleration = 300f;
    [SerializeField] public float m_BreakingForce = 250f;
    
    [HideInInspector] public bool m_BrakePressed;
@@ -35,7 +35,8 @@ public class CarMoveController : MonoBehaviour
    private float m_CurrentSpeed;
    private float m_MaxSpeed = 60f;
    private float m_GearGap = 10f;
-   private float m_MinPitch = .27f;
+   private float m_MinPitchAddOn = .27f;
+   private float m_PitchAddOn;
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
    private float m_JsDeadZone = .3f;
@@ -64,24 +65,98 @@ public class CarMoveController : MonoBehaviour
       ControlEngineSound();
    }
 
-   private void ControlEngineSound()
+   private void ControlEngineSound_SINGLEGEAR()
    {
       var audio = GetComponent<AudioSource>();
       m_CurrentSpeed = m_Rb.velocity.magnitude;
-      Debug.Log(m_CurrentSpeed);
+      
+      float soundPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
+      audio.pitch = soundPitch;
+   } // ControlEngineSound_SINGLEGEAR
+   
+   
+   private void ControlEngineSound()
+   {
+      float gearMinValue  = 0f;
+      float gearMaxValue = 0f;
+      var audio = GetComponent<AudioSource>();
+      m_CurrentSpeed = m_Rb.velocity.magnitude;
+      // Debug.Log(m_Rb.velocity);
+      
 
-
-      /*
-      if ( Mathf.RoundToInt(m_CurrentSpeed) % 10 == 0)
+      /*for (int i = 0; i < m_GearSpeeds.Length; i++)
       {
-         m_MaxSpeed -= 10;
-         Debug.Log(m_MaxSpeed);
+         if (m_CurrentSpeed < m_GearSpeeds[i])
+         {
+            if (i == 0)
+            {
+               gearMinValue = 0;
+            }
+            else
+            {
+               gearMinValue = m_GearSpeeds[i];
+            }
+
+            m_PitchAddOn = m_MinPitchAddOn * i;
+            gearMaxValue = m_GearSpeeds[i] - 1;
+         }
+         else
+         {
+            break;
+         }
       }*/
 
-      float soundPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitch;
-      
-      Debug.Log(soundPitch);
-      audio.pitch = soundPitch;
+      if (m_Rb.velocity.z >= 0)
+      {
+
+         if (m_CurrentSpeed < m_GearSpeeds[0])
+         {
+            gearMinValue = 0;
+            gearMaxValue = m_GearSpeeds[0] - 1;
+            m_PitchAddOn = m_MinPitchAddOn;
+         }
+         else if (m_CurrentSpeed < m_GearSpeeds[1])
+         {
+            gearMinValue = m_GearSpeeds[0];
+            gearMaxValue = m_GearSpeeds[1] - 1;
+            m_PitchAddOn = m_MinPitchAddOn * 2;
+         }
+         else if (m_CurrentSpeed < m_GearSpeeds[2])
+         {
+            gearMinValue = m_GearSpeeds[1];
+            gearMaxValue = m_GearSpeeds[2] - 1;
+            m_PitchAddOn = m_MinPitchAddOn * 3;
+         }
+         else if (m_CurrentSpeed < m_GearSpeeds[3])
+         {
+            gearMinValue = m_GearSpeeds[2];
+            gearMaxValue = m_GearSpeeds[3] - 1;
+            m_PitchAddOn = m_MinPitchAddOn * 4;
+         }
+         else if (m_CurrentSpeed < m_GearSpeeds[4])
+         {
+            gearMinValue = m_GearSpeeds[3];
+            gearMaxValue = m_GearSpeeds[4] - 1;
+            m_PitchAddOn = m_MinPitchAddOn * 5;
+         }
+         else if (m_CurrentSpeed < m_GearSpeeds[5])
+         {
+            gearMinValue = m_GearSpeeds[4];
+            gearMaxValue = m_GearSpeeds[5] - 1;
+            m_PitchAddOn = m_MinPitchAddOn * 6;
+         }
+
+
+
+         float enginePitch = ((m_CurrentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + m_PitchAddOn;
+         audio.pitch = enginePitch;
+      }
+      else
+      {
+         float reversedPitch = m_CurrentSpeed / m_MaxSpeed + 5 * m_MinPitchAddOn;
+         audio.pitch = reversedPitch;
+      }
+
    } // ControlEngineSound
 
    private void ApplyColliderStateIntoWheels()

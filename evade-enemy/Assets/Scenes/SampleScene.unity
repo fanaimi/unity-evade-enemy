@@ -1740,34 +1740,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[1]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[2]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[3]
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[4]
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_GearSpeeds.Array.data[5]
-      value: 65
-      objectReference: {fileID: 0}
     - target: {fileID: 6387111627489084758, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
       propertyPath: m_Name
       value: RedCar
