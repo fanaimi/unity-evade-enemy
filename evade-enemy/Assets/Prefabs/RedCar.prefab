@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Acceleration: 200
   m_BreakingForce: 150
   m_BrakePressed: 0
-  m_GearSpeeds: 0a000000140000001e000000280000003200000041000000
+  m_GearSpeeds: 0a000000140000001e00000028000000320000003c000000
 --- !u!82 &565825762
 AudioSource:
   m_ObjectHideFlags: 0

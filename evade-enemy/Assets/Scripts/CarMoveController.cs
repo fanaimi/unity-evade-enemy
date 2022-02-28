@@ -25,8 +25,8 @@ public class CarMoveController : MonoBehaviour
    
    // ------ vars
    // public vars
-   [SerializeField] public float m_Acceleration = 300f;
-   [SerializeField] public float m_BreakingForce = 250f;
+   [SerializeField] public float m_Acceleration = 10f;
+   [SerializeField] public float m_BreakingForce = 50f;
    
    [HideInInspector] public bool m_BrakePressed;
    
@@ -153,7 +153,7 @@ public class CarMoveController : MonoBehaviour
       }
       else
       {
-         float reversedPitch = m_CurrentSpeed / m_MaxSpeed + 5 * m_MinPitchAddOn;
+         float reversedPitch = m_CurrentSpeed / m_MaxSpeed + 3 * m_MinPitchAddOn;
          audio.pitch = reversedPitch;
       }
 
