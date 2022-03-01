@@ -40,7 +40,7 @@ public class CarMoveController : MonoBehaviour
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
    private float m_JsDeadZone = .35f;
-   private float m_MaxTurnAngle = 5f;
+   private float m_MaxTurnAngle = 15f;
    private float m_CurrentTurnAngle;
 
    private void Awake()
@@ -61,8 +61,13 @@ public class CarMoveController : MonoBehaviour
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
       ApplySteering();
-      ApplyColliderStateIntoWheels();
+      // ApplyColliderStateIntoWheels();
       ControlEngineSound();
+   }
+
+   private void LateUpdate()
+   {
+      ApplyColliderStateIntoWheels();
    }
 
    private void ControlEngineSound_SINGLEGEAR()
