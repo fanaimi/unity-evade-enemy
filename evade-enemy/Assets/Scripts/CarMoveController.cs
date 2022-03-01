@@ -158,7 +158,7 @@ public class CarMoveController : MonoBehaviour
       }
       else
       {
-         float reversedPitch = m_CurrentSpeed / m_MaxSpeed + 3 * m_MinPitchAddOn;
+         float reversedPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
          audio.pitch = reversedPitch;
       }
 
@@ -181,7 +181,14 @@ public class CarMoveController : MonoBehaviour
          m_FLwheel.steerAngle = m_CurrentTurnAngle;
          m_FRwheel.steerAngle = m_CurrentTurnAngle;
       }
+      Invoke("RemoveSteering", .5f);
    } // ApplySteering
+
+   private void RemoveSteering()
+   {
+      m_FLwheel.steerAngle = 0;
+      m_FRwheel.steerAngle = 0;
+   }
 
    private void GetVerticalAcceleration()
    {
