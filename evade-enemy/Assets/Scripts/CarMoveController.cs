@@ -25,8 +25,8 @@ public class CarMoveController : MonoBehaviour
    
    // ------ vars
    // public vars
-   [SerializeField] public float m_Acceleration = 10f;
-   [SerializeField] public float m_BreakingForce = 50f;
+   [SerializeField] public float m_Acceleration = 8f;
+   [SerializeField] public float m_BreakingForce = 5f;
    
    [HideInInspector] public bool m_BrakePressed;
    
@@ -174,9 +174,10 @@ public class CarMoveController : MonoBehaviour
 
    private void ApplySteering()
    {
-      if (Mathf.Abs(m_Joystick.Direction.x) > m_JsDeadZone)
+      // if (Mathf.Abs(m_Joystick.Direction.x) > m_JsDeadZone)
+      if (true)
       {
-         m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x;
+         m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x * .8f;
          m_FLwheel.steerAngle = m_CurrentTurnAngle;
          m_FRwheel.steerAngle = m_CurrentTurnAngle;
       }
