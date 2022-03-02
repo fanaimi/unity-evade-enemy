@@ -6,8 +6,8 @@ using UnityEngine;
 public class Speedometer : MonoBehaviour
 {
 
-    private const float MAX_SPEED_ANGLE = 220f;
-    private const float MIN_SPEED_ANGLE = -30f;
+    private const float MIN_SPEED_ANGLE = 220f;
+    private const float MAX_SPEED_ANGLE = -30f;
     
     private Transform m_SpeedNeedleTr;
 
@@ -36,6 +36,17 @@ public class Speedometer : MonoBehaviour
         
     }
 
+    public void SetSpeedNeedle(float speed)
+    {
+        m_CurrentSpeed = speed;
+        if (m_CurrentSpeed > m_MaxSpeed)
+        {
+            m_CurrentSpeed = m_MaxSpeed;
+        }
+
+        m_SpeedNeedleTr.eulerAngles = new Vector3(0, 0, GetSpeedNedleRotation());
+    }
+
 
 
     float GetSpeedNedleRotation()
@@ -44,7 +55,7 @@ public class Speedometer : MonoBehaviour
 
         float normalizedSpeed = m_CurrentSpeed / m_MaxSpeed; // value between 0 -> 1
 
-        return MIN_SPEED_ANGLE - totalRotationAngle * normalizedSpeed;
+        return MIN_SPEED_ANGLE - normalizedSpeed * totalRotationAngle ;
     }
 
 }

@@ -21,7 +21,7 @@ public class CarMoveController : MonoBehaviour
    
    private Joystick m_Joystick;
    private Rigidbody m_Rb;
-   
+   private Speedometer m_Speedometer;
    
    // ------ vars
    // public vars
@@ -34,12 +34,12 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private int[] m_GearSpeeds = new int[6];
    private float m_CurrentSpeed;
    private float m_MaxSpeed = 60f;
-   private float m_GearGap = 10f;
    private float m_MinPitchAddOn = .27f;
    private float m_PitchAddOn;
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
-   private float m_JsDeadZone = .35f;
+   // private float m_JsDeadZone = .35f;
+   // private float m_GearGap = 10f;
    private float m_MaxTurnAngle = 15f;
    private float m_CurrentTurnAngle;
 
@@ -47,10 +47,12 @@ public class CarMoveController : MonoBehaviour
    {
       m_Joystick = FindObjectOfType<Joystick>();
       m_Rb = GetComponent<Rigidbody>();
+      m_Speedometer = FindObjectOfType<Speedometer>();
    }
 
    private void Start()
    {
+      // m_Speedometer.SetSpeedNeedle(100f);
       // AudioManager.Instance.PlayOnce("Idle");
    }
 
@@ -60,7 +62,7 @@ public class CarMoveController : MonoBehaviour
       ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
-      ApplySteering();
+      // ApplySteering();
       // ApplyColliderStateIntoWheels();
       ControlEngineSound();
    }
@@ -86,6 +88,8 @@ public class CarMoveController : MonoBehaviour
       float gearMaxValue = 0f;
       var audio = GetComponent<AudioSource>();
       m_CurrentSpeed = m_Rb.velocity.magnitude;
+      
+      m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
       // Debug.Log(m_Rb.velocity);
       
 
