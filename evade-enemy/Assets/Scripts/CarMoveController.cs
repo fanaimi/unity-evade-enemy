@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class CarMoveController : MonoBehaviour
 {
-   private const bool STEERING = false;
+   private const bool STEERING = true;
+   private const bool SPACE_BREAKING= true;
    
    // ------ references
    // all wheel colliders
@@ -59,7 +60,6 @@ public class CarMoveController : MonoBehaviour
 
    private void Start()
    {
-      // skid marks: https://www.youtube.com/watch?v=0LOcxZhkVwc&ab_channel=pabloslab
       // m_Tachometer.SetRpmNeedle(8);
       // m_Speedometer.SetSpeedNeedle(100f);
       // AudioManager.Instance.PlayOnce("Idle");
@@ -68,6 +68,7 @@ public class CarMoveController : MonoBehaviour
    private void FixedUpdate()
    {
       GetVerticalAcceleration();
+      ListenToSpaceBrake();
       ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
@@ -114,33 +115,7 @@ public class CarMoveController : MonoBehaviour
       float gearMinValue  = 0f;
       float gearMaxValue = 0f;
       var audio = GetComponent<AudioSource>();
-      // m_CurrentSpeed = m_Rb.velocity.magnitude;
       
-      // Debug.Log(m_Rb.velocity);
-      
-
-      /*for (int i = 0; i < m_GearSpeeds.Length; i++)
-      {
-         if (m_CurrentSpeed < m_GearSpeeds[i])
-         {
-            if (i == 0)
-            {
-               gearMinValue = 0;
-            }
-            else
-            {
-               gearMinValue = m_GearSpeeds[i];
-            }
-
-            m_PitchAddOn = m_MinPitchAddOn * i;
-            gearMaxValue = m_GearSpeeds[i] - 1;
-         }
-         else
-         {
-            break;
-         }
-      }*/
-
       if (m_Rb.velocity.z >= 0)
       {
 
@@ -243,19 +218,32 @@ public class CarMoveController : MonoBehaviour
       m_BRwheel.motorTorque = m_CurrentAcceleration;*/
    } // ApplyWheelsAcceleration
 
+   void ListenToSpaceBrake()
+   {
+      if (SPACE_BREAKING)
+      {
+         if (Input.GetKey(KeyCode.Space))
+         {
+            m_BrakePressed = true;
+         }
+         else
+         {
+            m_BrakePressed = false;
+         }
+      }
+   }
+
+
    private void ListenToBrakes()
    {
       if (m_BrakePressed)
       {
-         AudioManager.Instance.PlayOnce("Brake");
-         // Debug.Log("down");
+         // AudioManager.Instance.PlayOnce("Brake");
          m_CurrentBrakeForce = m_BreakingForce;
       }
       else
       {
-         
-         AudioManager.Instance.Stop("Brake");
-         // Debug.Log("up");
+         // AudioManager.Instance.Stop("Brake");
          m_CurrentBrakeForce = 0f;
       }
    } // ListenToBrakes
