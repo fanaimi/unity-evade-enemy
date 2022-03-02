@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CarMoveController : MonoBehaviour 
+public class CarMoveController : MonoBehaviour
 {
+   private const bool STEERING = false;
+   
    // ------ references
    // all wheel colliders
    [SerializeField] private WheelCollider m_FLwheel;
@@ -22,6 +24,7 @@ public class CarMoveController : MonoBehaviour
    private Joystick m_Joystick;
    private Rigidbody m_Rb;
    private Speedometer m_Speedometer;
+   private Tachometer m_Tachometer;
    
    // ------ vars
    // public vars
@@ -33,6 +36,7 @@ public class CarMoveController : MonoBehaviour
    // private vars
    [SerializeField] private int[] m_GearSpeeds = new int[6];
    private float m_CurrentSpeed;
+   private float m_CurrentRpm;
    private float m_MaxSpeed = 60f;
    private float m_MinPitchAddOn = .27f;
    private float m_PitchAddOn;
@@ -42,16 +46,21 @@ public class CarMoveController : MonoBehaviour
    // private float m_GearGap = 10f;
    private float m_MaxTurnAngle = 15f;
    private float m_CurrentTurnAngle;
+   private float speedToDialRatio = 2f;
+   private float rpmToDialRatio = 3f;
 
    private void Awake()
    {
       m_Joystick = FindObjectOfType<Joystick>();
       m_Rb = GetComponent<Rigidbody>();
       m_Speedometer = FindObjectOfType<Speedometer>();
+      m_Tachometer = FindObjectOfType<Tachometer>();
    }
 
    private void Start()
    {
+      // skid marks: https://www.youtube.com/watch?v=0LOcxZhkVwc&ab_channel=pabloslab
+      // m_Tachometer.SetRpmNeedle(8);
       // m_Speedometer.SetSpeedNeedle(100f);
       // AudioManager.Instance.PlayOnce("Idle");
    }
@@ -62,14 +71,25 @@ public class CarMoveController : MonoBehaviour
       ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
-      // ApplySteering();
-      // ApplyColliderStateIntoWheels();
-      SetCurrentSpeedAndSpedometer();
+      if (STEERING)
+      {
+         ApplySteering();
+      }
       ControlEngineSound();
+      SetCurrentSpeedAndSpedometer();
+      SetUpTachometer();
    }
 
+   private void SetUpTachometer()
+   {
+      Debug.Log(m_CurrentRpm);
+      m_Tachometer.SetRpmNeedle(m_CurrentRpm * rpmToDialRatio);
+   }
+   
+   
    private void SetCurrentSpeedAndSpedometer()
    {
+      
       m_CurrentSpeed = m_Rb.velocity.magnitude;
       m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
    }
@@ -164,11 +184,13 @@ public class CarMoveController : MonoBehaviour
 
 
          float enginePitch = ((m_CurrentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + m_PitchAddOn;
+         m_CurrentRpm = enginePitch;
          audio.pitch = enginePitch;
       }
       else
       {
          float reversedPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
+         m_CurrentRpm = reversedPitch;
          audio.pitch = reversedPitch;
       }
 
