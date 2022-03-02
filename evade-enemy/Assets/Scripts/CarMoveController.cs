@@ -64,7 +64,14 @@ public class CarMoveController : MonoBehaviour
       ApplyWheelsBrake();
       // ApplySteering();
       // ApplyColliderStateIntoWheels();
+      SetCurrentSpeedAndSpedometer();
       ControlEngineSound();
+   }
+
+   private void SetCurrentSpeedAndSpedometer()
+   {
+      m_CurrentSpeed = m_Rb.velocity.magnitude;
+      m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
    }
 
    private void LateUpdate()
@@ -87,9 +94,8 @@ public class CarMoveController : MonoBehaviour
       float gearMinValue  = 0f;
       float gearMaxValue = 0f;
       var audio = GetComponent<AudioSource>();
-      m_CurrentSpeed = m_Rb.velocity.magnitude;
+      // m_CurrentSpeed = m_Rb.velocity.magnitude;
       
-      m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
       // Debug.Log(m_Rb.velocity);
       
 
