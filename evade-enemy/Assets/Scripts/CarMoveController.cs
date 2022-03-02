@@ -206,13 +206,10 @@ public class CarMoveController : MonoBehaviour
 
    private void ApplySteering()
    {
-      // if (Mathf.Abs(m_Joystick.Direction.x) > m_JsDeadZone)
-      if (true)
-      {
          m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x * .8f;
          m_FLwheel.steerAngle = m_CurrentTurnAngle;
          m_FRwheel.steerAngle = m_CurrentTurnAngle;
-      }
+      
       Invoke("RemoveSteering", .5f);
    } // ApplySteering
 

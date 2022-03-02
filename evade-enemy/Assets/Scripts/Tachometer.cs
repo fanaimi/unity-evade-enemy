@@ -28,7 +28,7 @@ public class Tachometer : MonoBehaviour
     void Start()
     {
         // Debug.Log(m_RpmNeedleTr.position);
-        SetRpmNeedle(4.5f);
+        // SetRpmNeedle(4.5f);
     }
 
     // Update is called once per frame
@@ -37,9 +37,9 @@ public class Tachometer : MonoBehaviour
         
     }
 
-    public void SetRpmNeedle(float rpm)
+    public void SetRpmNeedle(float _rpm)
     {
-        m_CurrentRpm = rpm;
+        m_CurrentRpm = _rpm;
         if (m_CurrentRpm > m_MaxRpm)
         {
             m_CurrentRpm = m_MaxRpm;
@@ -58,5 +58,4 @@ public class Tachometer : MonoBehaviour
 
         return MIN_RPM_ANGLE - normalizedRpm * totalRotationAngle ;
     }
-
 }

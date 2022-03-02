@@ -36,9 +36,9 @@ public class Speedometer : MonoBehaviour
         
     }
 
-    public void SetSpeedNeedle(float speed)
+    public void SetSpeedNeedle(float _speed)
     {
-        m_CurrentSpeed = speed;
+        m_CurrentSpeed = _speed;
         if (m_CurrentSpeed > m_MaxSpeed)
         {
             m_CurrentSpeed = m_MaxSpeed;
