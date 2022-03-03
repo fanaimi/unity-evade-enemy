@@ -7,6 +7,8 @@ public class CarEffects : MonoBehaviour
 
     private CarMoveController m_CarMoveController;
     [SerializeField] private TrailRenderer[] m_SkidMarks = new TrailRenderer[4];
+    [SerializeField] private ParticleSystem[] m_SkidSmoke = new ParticleSystem[4];
+    
     [SerializeField] private AudioSource m_SkidAudio;
     private bool m_SkidMarksOn;
     
@@ -41,6 +43,7 @@ public class CarEffects : MonoBehaviour
         foreach (TrailRenderer SkidMark in m_SkidMarks)
         {
             SkidMark.emitting = true;
+            ShowSmoke();
         }
         m_SkidAudio.Play();
         m_SkidMarksOn = true;
@@ -52,9 +55,28 @@ public class CarEffects : MonoBehaviour
         foreach (TrailRenderer SkidMark in m_SkidMarks)
         {
             SkidMark.emitting = false;
+            StopSmoke();
         }
         m_SkidAudio.Stop();
         m_SkidMarksOn = false;
     } // STOP
+
+
+
+    void ShowSmoke()
+    {
+        foreach (ParticleSystem smoke in m_SkidSmoke)
+        {
+            smoke.Play();
+        }
+    }
+
+    void StopSmoke()
+    {
+        foreach (ParticleSystem smoke in m_SkidSmoke)
+        {
+            smoke.Stop();
+        }
+    }
 
 }
