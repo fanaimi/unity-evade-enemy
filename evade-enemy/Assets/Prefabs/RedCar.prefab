@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &29312546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29312547}
+  m_Layer: 0
+  m_Name: BRSkidSmoke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29312547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29312546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 0, z: -0.572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9170953501411463461}
+  m_Father: {fileID: 2032139596}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &586785059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586785060}
+  m_Layer: 0
+  m_Name: FRSkidSmoke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586785060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586785059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 0, z: 0.7874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9170953501472212735}
+  m_Father: {fileID: 2032139596}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986524239
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +479,68 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!1 &1891841784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891841785}
+  m_Layer: 0
+  m_Name: FLSkidSmoke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891841785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891841784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.38, y: 0, z: 0.7874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9170953500978009669}
+  m_Father: {fileID: 2032139596}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1899840642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899840643}
+  m_Layer: 0
+  m_Name: BLSkidSmoke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1899840643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899840642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.38, y: 0, z: -0.572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9170953502520163537}
+  m_Father: {fileID: 2032139596}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950722369
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +670,40 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!1 &2032139595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032139596}
+  m_Layer: 0
+  m_Name: SkidSmokeEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2032139596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032139595}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1891841785}
+  - {fileID: 586785060}
+  - {fileID: 29312547}
+  - {fileID: 1899840643}
+  m_Father: {fileID: 6392578886097752550}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052588986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1365,7 @@ Transform:
   - {fileID: 2644310994517135108}
   - {fileID: 2052588987}
   - {fileID: 1569958106}
+  - {fileID: 2032139596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1224,7 +1383,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!65 &9178531310927914826
 BoxCollider:
@@ -1255,6 +1414,7 @@ MonoBehaviour:
   m_FRwheel: {fileID: 2787538090945630400}
   m_BLwheel: {fileID: 3350725578685560768}
   m_BRwheel: {fileID: 5470441157214265186}
+  m_CentreOfMass: {fileID: 1569958106}
   m_FLtransform: {fileID: 6388659711779377510}
   m_FRtransform: {fileID: 6392580882178293018}
   m_BLtransform: {fileID: 6392616269011234662}
@@ -1670,3 +1830,251 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &3810347163686630908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1899840643}
+    m_Modifications:
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871045901, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_Name
+      value: TyreBurnoutSmoke
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+--- !u!4 &9170953502520163537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+  m_PrefabInstance: {fileID: 3810347163686630908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3810347164287672168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1891841785}
+    m_Modifications:
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871045901, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_Name
+      value: TyreBurnoutSmoke
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+--- !u!4 &9170953500978009669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+  m_PrefabInstance: {fileID: 3810347164287672168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3810347164658472968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 29312547}
+    m_Modifications:
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871045901, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_Name
+      value: TyreBurnoutSmoke
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+--- !u!4 &9170953501411463461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+  m_PrefabInstance: {fileID: 3810347164658472968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3810347164748713938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 586785060}
+    m_Modifications:
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450717913871045901, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+      propertyPath: m_Name
+      value: TyreBurnoutSmoke
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+--- !u!4 &9170953501472212735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5450717913871010093, guid: adece572c39568a4eaac0b6c6c1c3edf, type: 3}
+  m_PrefabInstance: {fileID: 3810347164748713938}
+  m_PrefabAsset: {fileID: 0}

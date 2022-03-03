@@ -1902,11 +1902,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4353972167979376, guid: 6717c7c2d677a9f439f502029ec5b22a, type: 3}
   m_PrefabInstance: {fileID: 1555728518}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1569958106 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1569958106, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-  m_PrefabInstance: {fileID: 3810347164983219379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1586561453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,10 +2555,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1378725155638327874, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
-      propertyPath: m_CentreOfMass
-      value: 
-      objectReference: {fileID: 1569958106}
     - target: {fileID: 6387111627489084758, guid: 4b74deef0654ea944b74ba3fd1f30bce, type: 3}
       propertyPath: m_Name
       value: RedCar
