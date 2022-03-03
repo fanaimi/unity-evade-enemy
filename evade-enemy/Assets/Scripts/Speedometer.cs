@@ -27,7 +27,7 @@ public class Speedometer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(m_SpeedNeedleTr.position);
+        // Debug.Log(m_SpeedNeedleTr.position);
     }
 
     // Update is called once per frame
