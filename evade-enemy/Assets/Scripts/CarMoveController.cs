@@ -49,6 +49,7 @@ public class CarMoveController : MonoBehaviour
    private float m_CurrentTurnAngle;
    private float speedToDialRatio = 2f;
    private float rpmToDialRatio = 3f;
+   private float m_Radius = 6f;
 
    private void Awake()
    {
@@ -72,10 +73,7 @@ public class CarMoveController : MonoBehaviour
       ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
-      if (STEERING)
-      {
-         ApplySteering();
-      }
+      ApplySteering();
       ControlEngineSound();
       SetCurrentSpeedAndSpedometer();
       SetUpTachometer();
@@ -181,11 +179,34 @@ public class CarMoveController : MonoBehaviour
 
    private void ApplySteering()
    {
-         m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x * .8f;
+      if (STEERING)
+      {
+         /*m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x * .8f;
          m_FLwheel.steerAngle = m_CurrentTurnAngle;
          m_FRwheel.steerAngle = m_CurrentTurnAngle;
-      
-      Invoke("RemoveSteering", .5f);
+
+         Invoke("RemoveSteering", .5f);*/
+         
+         // ACKERMAN FORMULA FOR STEERING
+         //steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * horizontalInput;
+
+         if (m_Joystick.Direction.x > 0)
+         {
+            m_FLwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius + (1.5f / 2))) * m_Joystick.Direction.x;
+            m_FRwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius - (1.5f / 2))) * m_Joystick.Direction.x;
+         }
+         else if(m_Joystick.Direction.x < 0)
+         {
+            m_FLwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius - (1.5f / 2))) * m_Joystick.Direction.x;
+            m_FRwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius + (1.5f / 2))) * m_Joystick.Direction.x;
+         }
+         else
+         {
+            m_FLwheel.steerAngle = 0;
+            m_FRwheel.steerAngle = 0;
+         }
+
+      }
    } // ApplySteering
 
    private void RemoveSteering()
