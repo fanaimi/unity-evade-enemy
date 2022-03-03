@@ -33,6 +33,7 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] public float m_BreakingForce = 5f;
    
    [HideInInspector] public bool m_BrakePressed;
+   [HideInInspector] public bool m_IsGrounded;
    
    // private vars
    [SerializeField] private int[] m_GearSpeeds = new int[6];
@@ -68,6 +69,7 @@ public class CarMoveController : MonoBehaviour
 
    private void FixedUpdate()
    {
+      CheckIfGrounded();
       GetVerticalAcceleration();
       ListenToSpaceBrake();
       ListenToBrakes();
@@ -77,6 +79,21 @@ public class CarMoveController : MonoBehaviour
       ControlEngineSound();
       SetCurrentSpeedAndSpedometer();
       SetUpTachometer();
+   }
+   
+   private void CheckIfGrounded()
+   {
+      if (m_FLwheel.isGrounded &&
+          m_FRwheel.isGrounded &&
+          m_BLwheel.isGrounded &&
+          m_BRwheel.isGrounded)
+      {
+         m_IsGrounded = true;
+      }
+      else
+      {
+         m_IsGrounded = false;
+      }
    }
 
    private void SetUpTachometer()
@@ -98,14 +115,6 @@ public class CarMoveController : MonoBehaviour
       ApplyColliderStateIntoWheels();
    }
 
-   private void ControlEngineSound_SINGLEGEAR()
-   {
-      var audio = GetComponent<AudioSource>();
-      m_CurrentSpeed = m_Rb.velocity.magnitude;
-      
-      float soundPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
-      audio.pitch = soundPitch;
-   } // ControlEngineSound_SINGLEGEAR
    
    
    private void ControlEngineSound()
@@ -208,12 +217,8 @@ public class CarMoveController : MonoBehaviour
 
       }
    } // ApplySteering
+   
 
-   private void RemoveSteering()
-   {
-      m_FLwheel.steerAngle = 0;
-      m_FRwheel.steerAngle = 0;
-   }
 
    private void GetVerticalAcceleration()
    {
@@ -259,12 +264,10 @@ public class CarMoveController : MonoBehaviour
    {
       if (m_BrakePressed)
       {
-         // AudioManager.Instance.PlayOnce("Brake");
          m_CurrentBrakeForce = m_BreakingForce;
       }
       else
       {
-         // AudioManager.Instance.Stop("Brake");
          m_CurrentBrakeForce = 0f;
       }
    } // ListenToBrakes

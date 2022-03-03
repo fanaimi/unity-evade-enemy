@@ -26,7 +26,7 @@ public class CarEffects : MonoBehaviour
     private void ListenToBrakes()
     {
         // skid marks: https://www.youtube.com/watch?v=0LOcxZhkVwc&ab_channel=pabloslab
-        if (m_CarMoveController.m_BrakePressed)
+        if (m_CarMoveController.m_IsGrounded && m_CarMoveController.m_BrakePressed)
         {
             StartSkidMarks();
         }
