@@ -6,7 +6,7 @@ public class MapBuilder : MonoBehaviour
 {
     public GameObject m_RoadPiecePrefab;
 
-    private float m_NumOfRoadPieces = 200f;
+    private float m_NumOfRoadPieces = 240f;
     private float m_PieceOffset = 10f;
     
     void Start()
@@ -19,6 +19,10 @@ public class MapBuilder : MonoBehaviour
                 Quaternion.identity, 
                 transform
             );
+            if (i == 198)
+            {
+                road.transform.Rotate(-10, 0, 0);
+            }
         }        
     }
 

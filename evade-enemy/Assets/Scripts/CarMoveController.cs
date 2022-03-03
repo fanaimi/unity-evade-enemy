@@ -15,6 +15,7 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private WheelCollider m_FRwheel;
    [SerializeField] private WheelCollider m_BLwheel;
    [SerializeField] private WheelCollider m_BRwheel;
+   [SerializeField] private Transform m_CentreOfMass;
 
    // all wheel transforms
    [SerializeField] private Transform m_FLtransform;
@@ -51,6 +52,7 @@ public class CarMoveController : MonoBehaviour
    private float speedToDialRatio = 2f;
    private float rpmToDialRatio = 3f;
    private float m_Radius = 6f;
+   private float m_DownardForce = 10f;
 
    private void Awake()
    {
@@ -58,6 +60,12 @@ public class CarMoveController : MonoBehaviour
       m_Rb = GetComponent<Rigidbody>();
       m_Speedometer = FindObjectOfType<Speedometer>();
       m_Tachometer = FindObjectOfType<Tachometer>();
+      SetLowerCentreOfMass();
+   }
+
+   private void SetLowerCentreOfMass()
+   {
+      m_Rb.centerOfMass = m_CentreOfMass.transform.localPosition;   
    }
 
    private void Start()
@@ -70,6 +78,7 @@ public class CarMoveController : MonoBehaviour
    private void FixedUpdate()
    {
       CheckIfGrounded();
+      AddDownwardForce();
       GetVerticalAcceleration();
       ListenToSpaceBrake();
       ListenToBrakes();
@@ -80,7 +89,13 @@ public class CarMoveController : MonoBehaviour
       SetCurrentSpeedAndSpedometer();
       SetUpTachometer();
    }
-   
+
+   private void AddDownwardForce()
+   {
+      if(m_IsGrounded)
+         m_Rb.AddForce(-transform.up * m_DownardForce * m_Rb.velocity.magnitude );
+   }
+
    private void CheckIfGrounded()
    {
       if (m_FLwheel.isGrounded &&
@@ -98,13 +113,14 @@ public class CarMoveController : MonoBehaviour
 
    private void SetUpTachometer()
    {
-      Debug.Log(m_CurrentRpm);
+      // Debug.Log(m_CurrentRpm);
       m_Tachometer.SetRpmNeedle(m_CurrentRpm * rpmToDialRatio);
    }
    
    
    private void SetCurrentSpeedAndSpedometer()
    {
+      // Vector3 localVelocity = transform.InverseTransformDirection(m_Rb.velocity);
       
       m_CurrentSpeed = m_Rb.velocity.magnitude;
       m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
