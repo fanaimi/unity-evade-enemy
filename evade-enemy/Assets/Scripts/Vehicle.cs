@@ -4,18 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CarMoveController : MonoBehaviour
+public class Vehicle : MonoBehaviour
 {
-   private const bool STEERING = false;
-   private const bool SPACE_BREAKING= true;
- 
-   
-   /*internal enum PlayType{
-      player,
-      opponent,
-      still
-   }
-   [SerializeField]private PlayType m_playType;*/
    
    
    
@@ -33,10 +23,7 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private Transform m_BLtransform;
    [SerializeField] private Transform m_BRtransform;
    
-   private Joystick m_Joystick;
    private Rigidbody m_Rb;
-   private Speedometer m_Speedometer;
-   private Tachometer m_Tachometer;
    
    // ------ vars
    // public vars
@@ -55,21 +42,16 @@ public class CarMoveController : MonoBehaviour
    private float m_PitchAddOn;
    private float m_CurrentAcceleration = 0f;
    private float m_CurrentBrakeForce = 0f;
-   // private float m_JsDeadZone = .35f;
-   // private float m_GearGap = 10f;
-   private float m_MaxTurnAngle = 15f;
-   private float m_CurrentTurnAngle;
+   
+   
    private float speedToDialRatio = 2f;
-   private float rpmToDialRatio = 3f;
+   
    private float m_Radius = 6f;
    private float m_DownardForce = 10f;
 
    private void Awake()
    {
-      m_Joystick = FindObjectOfType<Joystick>();
       m_Rb = GetComponent<Rigidbody>();
-      m_Speedometer = FindObjectOfType<Speedometer>();
-      m_Tachometer = FindObjectOfType<Tachometer>();
       SetLowerCentreOfMass();
    }
 
@@ -90,14 +72,9 @@ public class CarMoveController : MonoBehaviour
       CheckIfGrounded();
       AddDownwardForce();
       GetVerticalAcceleration();
-      ListenToSpaceBrake();
-      ListenToBrakes();
       ApplyWheelsAcceleration();
       ApplyWheelsBrake();
-      ApplySteering();
       ControlEngineSound();
-      SetCurrentSpeedAndSpedometer();
-      SetUpTachometer();
    }
 
    private void AddDownwardForce()
@@ -121,20 +98,8 @@ public class CarMoveController : MonoBehaviour
       }
    }
 
-   private void SetUpTachometer()
-   {
-      // Debug.Log(m_CurrentRpm);
-      m_Tachometer.SetRpmNeedle(m_CurrentRpm * rpmToDialRatio);
-   }
    
    
-   private void SetCurrentSpeedAndSpedometer()
-   {
-      // Vector3 localVelocity = transform.InverseTransformDirection(m_Rb.velocity);
-      
-      m_CurrentSpeed = m_Rb.velocity.magnitude;
-      m_Speedometer.SetSpeedNeedle(m_CurrentSpeed*2f);
-   }
 
    private void LateUpdate()
    {
@@ -212,43 +177,12 @@ public class CarMoveController : MonoBehaviour
       UpdateWheelTransforms(m_BRwheel, m_BRtransform);
    } // ApplyColliderStateIntoWheels
 
-   private void ApplySteering()
-   {
-      if (STEERING)
-      {
-         /*m_CurrentTurnAngle = m_MaxTurnAngle * m_Joystick.Direction.x * .8f;
-         m_FLwheel.steerAngle = m_CurrentTurnAngle;
-         m_FRwheel.steerAngle = m_CurrentTurnAngle;
-
-         Invoke("RemoveSteering", .5f);*/
-         
-         // ACKERMAN FORMULA FOR STEERING
-         //steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (radius + (1.5f / 2))) * horizontalInput;
-
-         if (m_Joystick.Direction.x > 0)
-         {
-            m_FLwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius + (1.5f / 2))) * m_Joystick.Direction.x;
-            m_FRwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius - (1.5f / 2))) * m_Joystick.Direction.x;
-         }
-         else if(m_Joystick.Direction.x < 0)
-         {
-            m_FLwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius - (1.5f / 2))) * m_Joystick.Direction.x;
-            m_FRwheel.steerAngle = Mathf.Rad2Deg * Mathf.Atan(2.55f / (m_Radius + (1.5f / 2))) * m_Joystick.Direction.x;
-         }
-         else
-         {
-            m_FLwheel.steerAngle = 0;
-            m_FRwheel.steerAngle = 0;
-         }
-
-      }
-   } // ApplySteering
    
 
 
    private void GetVerticalAcceleration()
    {
-      m_CurrentAcceleration = m_Acceleration * m_Joystick.Direction.y;
+      m_CurrentAcceleration = m_Acceleration ;
    } // GetVerticalAcceleration
 
    private void ApplyWheelsBrake()
@@ -270,20 +204,6 @@ public class CarMoveController : MonoBehaviour
       m_BRwheel.motorTorque = m_CurrentAcceleration;*/
    } // ApplyWheelsAcceleration
 
-   void ListenToSpaceBrake()
-   {
-      if (SPACE_BREAKING)
-      {
-         if (Input.GetKey(KeyCode.Space))
-         {
-            m_BrakePressed = true;
-         }
-         else
-         {
-            m_BrakePressed = false;
-         }
-      }
-   }
 
 
    private void ListenToBrakes()
@@ -314,11 +234,4 @@ public class CarMoveController : MonoBehaviour
    }
 
 
-   private void OnCollisionEnter(Collision other)
-   {
-      if (other.gameObject.CompareTag("Vehicle"))
-      {
-         AudioManager.Instance.Play("HardCrash");
-      }
-   }
 }
