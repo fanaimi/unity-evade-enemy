@@ -52,7 +52,7 @@ public class Vehicle : MonoBehaviour
    private void Awake()
    {
       m_Rb = GetComponent<Rigidbody>();
-      SetLowerCentreOfMass();
+      // SetLowerCentreOfMass();
    }
 
    private void SetLowerCentreOfMass()
@@ -158,13 +158,13 @@ public class Vehicle : MonoBehaviour
 
          float enginePitch = ((m_CurrentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + m_PitchAddOn;
          m_CurrentRpm = enginePitch;
-         audio.pitch = enginePitch;
+//         audio.pitch = enginePitch;
       }
       else
       {
          float reversedPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
          m_CurrentRpm = reversedPitch;
-         audio.pitch = reversedPitch;
+//         audio.pitch = reversedPitch;
       }
 
    } // ControlEngineSound
