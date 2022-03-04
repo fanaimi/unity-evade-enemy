@@ -303,4 +303,12 @@ public class CarMoveController : MonoBehaviour
 
    }
 
+
+   private void OnCollisionEnter(Collision other)
+   {
+      if (other.gameObject.CompareTag("Vehicle"))
+      {
+         AudioManager.Instance.Play("HardCrash");
+      }
+   }
 }
