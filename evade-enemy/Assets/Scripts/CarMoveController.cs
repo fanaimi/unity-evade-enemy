@@ -70,7 +70,7 @@ public class CarMoveController : MonoBehaviour
       m_Rb = GetComponent<Rigidbody>();
       m_Speedometer = FindObjectOfType<Speedometer>();
       m_Tachometer = FindObjectOfType<Tachometer>();
-      SetLowerCentreOfMass();
+      // SetLowerCentreOfMass();
    }
 
    private void SetLowerCentreOfMass()

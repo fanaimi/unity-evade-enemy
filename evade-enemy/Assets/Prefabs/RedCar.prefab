@@ -898,7 +898,7 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4396641911841099079}
-  m_Center: {x: -0.39, y: 0.3, z: -0.63}
+  m_Center: {x: -0.39, y: 0.3, z: -0.635}
   m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
@@ -993,7 +993,7 @@ WheelCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5247759020755298642}
-  m_Center: {x: 0.39, y: 0.3, z: -0.63}
+  m_Center: {x: 0.39, y: 0.3, z: -0.635}
   m_Radius: 0.16
   m_SuspensionSpring:
     spring: 35000
@@ -1419,8 +1419,8 @@ MonoBehaviour:
   m_FRtransform: {fileID: 6392580882178293018}
   m_BLtransform: {fileID: 6392616269011234662}
   m_BRtransform: {fileID: 6388812850706721650}
-  m_Acceleration: 200
-  m_BreakingForce: 150
+  m_Acceleration: 150
+  m_BreakingForce: 120
   m_BrakePressed: 0
   m_IsGrounded: 0
   m_GearSpeeds: 0a000000140000001e00000028000000320000003c000000

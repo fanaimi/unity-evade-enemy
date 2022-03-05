@@ -13,15 +13,15 @@ public class Vehicle : MonoBehaviour
    // all wheel colliders
    [SerializeField] private WheelCollider m_FLwheel;
    [SerializeField] private WheelCollider m_FRwheel;
-   [SerializeField] private WheelCollider m_BLwheel;
    [SerializeField] private WheelCollider m_BRwheel;
+   [SerializeField] private WheelCollider m_BLwheel;
    [SerializeField] private Transform m_CentreOfMass;
 
    // all wheel transforms
    [SerializeField] private Transform m_FLtransform;
    [SerializeField] private Transform m_FRtransform;
-   [SerializeField] private Transform m_BLtransform;
    [SerializeField] private Transform m_BRtransform;
+   [SerializeField] private Transform m_BLtransform;
    
    private Rigidbody m_Rb;
    
