@@ -241,7 +241,10 @@ public class Vehicle : MonoBehaviour
       if (other.gameObject.CompareTag(m_EndTrack.gameObject.tag) 
       )
       {
-         transform.position = m_StartTrack.gameObject.transform.position;
+         float x = transform.position.x;
+         float y = m_StartTrack.gameObject.transform.position.y;
+         float z = m_StartTrack.gameObject.transform.position.z;
+         transform.position = new Vector3(x,y,z);
       }
    }
 }

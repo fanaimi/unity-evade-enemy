@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CarMoveController : MonoBehaviour
 {
-   private const bool STEERING = false;
+   private  bool STEERING = false;
    private const bool SPACE_BREAKING= true;
  
    
@@ -33,6 +33,7 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private Transform m_BLtransform;
    [SerializeField] private Transform m_BRtransform;
    
+   [SerializeField] private AudioSource m_engineAudio;
    
    [SerializeField] private BoxCollider m_StartTrack;
    [SerializeField] private BoxCollider m_EndTrack;
@@ -102,7 +103,17 @@ public class CarMoveController : MonoBehaviour
       ControlEngineSound();
       SetCurrentSpeedAndSpedometer();
       SetUpTachometer();
+      ControlSteering();
    }
+
+   void ControlSteering()
+   {
+      if (Input.GetKeyDown(KeyCode.S))
+      {
+         STEERING = !STEERING;
+      }
+   }
+
 
    private void AddDownwardForce()
    {
@@ -146,12 +157,11 @@ public class CarMoveController : MonoBehaviour
    }
 
    
-   
    private void ControlEngineSound()
    {
       float gearMinValue  = 0f;
       float gearMaxValue = 0f;
-      var audio = GetComponent<AudioSource>();
+      // var audio = GetComponent<AudioSource>();
       
       if (m_Rb.velocity.z >= 0)
       {
@@ -197,13 +207,13 @@ public class CarMoveController : MonoBehaviour
 
          float enginePitch = ((m_CurrentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + m_PitchAddOn;
          m_CurrentRpm = enginePitch;
-         audio.pitch = enginePitch;
+         m_engineAudio.pitch = enginePitch;
       }
       else
       {
          float reversedPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
          m_CurrentRpm = reversedPitch;
-         audio.pitch = reversedPitch;
+         m_engineAudio.pitch = reversedPitch;
       }
 
    } // ControlEngineSound
@@ -333,7 +343,10 @@ public class CarMoveController : MonoBehaviour
       if (other.gameObject.CompareTag(m_EndTrack.gameObject.tag) 
       )
       {
-         transform.position = m_StartTrack.gameObject.transform.position;
+         float x = transform.position.x;
+         float y = m_StartTrack.gameObject.transform.position.y;
+         float z = m_StartTrack.gameObject.transform.position.z;
+         transform.position = new Vector3(x,y,z);
       }
    }
    
