@@ -22,6 +22,13 @@ public class MapBuilder : MonoBehaviour
             if (i == 198)
             {
                 road.transform.Rotate(-10, 0, 0);
+                road.transform.position += new Vector3(0, .86f, 0);
+            }
+            
+            if (i == 200)
+            {
+                road.transform.Rotate(10, 0, 0);
+                road.transform.position += new Vector3(0, .86f, 0);
             }
         }        
     }

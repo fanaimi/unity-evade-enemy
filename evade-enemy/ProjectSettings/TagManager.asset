@@ -9,6 +9,7 @@ TagManager:
   - Grass
   - Vehicle
   - EndOfTrack
+  - StartOfTrack
   layers:
   - Default
   - TransparentFX

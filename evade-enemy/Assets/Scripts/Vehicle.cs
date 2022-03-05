@@ -229,8 +229,7 @@ public class Vehicle : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-      if (other.gameObject.CompareTag("EndOfTrack") &&
-          other.gameObject.GetComponent<BoxCollider>() == m_EndTrack
+      if (other.gameObject.CompareTag(m_EndTrack.gameObject.tag) 
       )
       {
          transform.position = m_StartTrack.gameObject.transform.position;
