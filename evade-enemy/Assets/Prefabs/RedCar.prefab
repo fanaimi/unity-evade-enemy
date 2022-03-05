@@ -1419,6 +1419,8 @@ MonoBehaviour:
   m_FRtransform: {fileID: 6392580882178293018}
   m_BLtransform: {fileID: 6392616269011234662}
   m_BRtransform: {fileID: 6388812850706721650}
+  m_StartTrack: {fileID: 0}
+  m_EndTrack: {fileID: 0}
   m_Acceleration: 150
   m_BreakingForce: 120
   m_BrakePressed: 0
@@ -1431,7 +1433,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6387111627489084758}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f89e913f2255e1f479ac9e3041026578, type: 3}
@@ -1442,7 +1444,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 218
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

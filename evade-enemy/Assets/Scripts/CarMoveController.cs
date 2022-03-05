@@ -33,6 +33,10 @@ public class CarMoveController : MonoBehaviour
    [SerializeField] private Transform m_BLtransform;
    [SerializeField] private Transform m_BRtransform;
    
+   
+   [SerializeField] private BoxCollider m_StartTrack;
+   [SerializeField] private BoxCollider m_EndTrack;
+   
    private Joystick m_Joystick;
    private Rigidbody m_Rb;
    private Speedometer m_Speedometer;
@@ -70,7 +74,7 @@ public class CarMoveController : MonoBehaviour
       m_Rb = GetComponent<Rigidbody>();
       m_Speedometer = FindObjectOfType<Speedometer>();
       m_Tachometer = FindObjectOfType<Tachometer>();
-      // SetLowerCentreOfMass();
+      SetLowerCentreOfMass();
    }
 
    private void SetLowerCentreOfMass()
@@ -321,4 +325,16 @@ public class CarMoveController : MonoBehaviour
          AudioManager.Instance.Play("HardCrash");
       }
    }
+   
+   
+
+   private void OnTriggerEnter(Collider other)
+   {
+      if (other.gameObject.CompareTag(m_EndTrack.gameObject.tag) 
+      )
+      {
+         transform.position = m_StartTrack.gameObject.transform.position;
+      }
+   }
+   
 }

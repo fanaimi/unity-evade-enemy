@@ -225,6 +225,15 @@ public class Vehicle : MonoBehaviour
       _transform.rotation = rotation;
 
    }
+   
+   
+   private void OnCollisionEnter(Collision other)
+   {
+      if (other.gameObject.CompareTag("Vehicle"))
+      {
+         AudioManager.Instance.Play("HardCrash");
+      }
+   }
 
 
    private void OnTriggerEnter(Collider other)
