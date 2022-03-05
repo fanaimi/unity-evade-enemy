@@ -2477,10 +2477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3164618453883055613, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
-      propertyPath: m_Acceleration
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 3164618453883055614, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
       propertyPath: m_Name
       value: Police_car
