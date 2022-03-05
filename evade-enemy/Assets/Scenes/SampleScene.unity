@@ -2525,7 +2525,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7af2fab4601262a4cba5e903edf09175, type: 3}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9158473266857997051, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4e63d21bc8aab648ac366d3eba9c6ce, type: 3}
 --- !u!1001 &3810347164983219379
 PrefabInstance:

@@ -113,6 +113,7 @@ public class Vehicle : MonoBehaviour
       float gearMinValue  = 0f;
       float gearMaxValue = 0f;
       var audio = GetComponent<AudioSource>();
+      // Debug.Log(audio);
       
       if (m_Rb.velocity.z >= 0)
       {
@@ -158,13 +159,13 @@ public class Vehicle : MonoBehaviour
 
          float enginePitch = ((m_CurrentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + m_PitchAddOn;
          m_CurrentRpm = enginePitch;
-//         audio.pitch = enginePitch;
+         audio.pitch = enginePitch;
       }
       else
       {
          float reversedPitch = m_CurrentSpeed / m_MaxSpeed + m_MinPitchAddOn;
          m_CurrentRpm = reversedPitch;
-//         audio.pitch = reversedPitch;
+         audio.pitch = reversedPitch;
       }
 
    } // ControlEngineSound
@@ -206,17 +207,6 @@ public class Vehicle : MonoBehaviour
 
 
 
-   private void ListenToBrakes()
-   {
-      if (m_BrakePressed)
-      {
-         m_CurrentBrakeForce = m_BreakingForce;
-      }
-      else
-      {
-         m_CurrentBrakeForce = 0f;
-      }
-   } // ListenToBrakes
 
 
    void UpdateWheelTransforms(WheelCollider _collider, Transform _transform)
