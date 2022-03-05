@@ -22,6 +22,9 @@ public class Vehicle : MonoBehaviour
    [SerializeField] private Transform m_FRtransform;
    [SerializeField] private Transform m_BRtransform;
    [SerializeField] private Transform m_BLtransform;
+
+   [SerializeField] private BoxCollider m_StartTrack;
+   [SerializeField] private BoxCollider m_EndTrack;
    
    private Rigidbody m_Rb;
    
@@ -224,4 +227,13 @@ public class Vehicle : MonoBehaviour
    }
 
 
+   private void OnTriggerEnter(Collider other)
+   {
+      if (other.gameObject.CompareTag("EndOfTrack") &&
+          other.gameObject.GetComponent<BoxCollider>() == m_EndTrack
+      )
+      {
+         transform.position = m_StartTrack.gameObject.transform.position;
+      }
+   }
 }
