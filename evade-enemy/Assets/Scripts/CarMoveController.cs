@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class CarMoveController : MonoBehaviour
 {
-   private  bool STEERING = false;
+   private  bool STEERING = true;
    private const bool SPACE_BREAKING= true;
  
    
